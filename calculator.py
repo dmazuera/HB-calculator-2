@@ -15,15 +15,13 @@ while True:
     tokenized_input = input.split(" ")
 
     num1 = float(tokenized_input[1])
-    try:
-        tokenized_input[2]
-        num2 = float(tokenized_input[2])
-    except:
-        pass
+    # try:
+    #     tokenized_input[2]
+    #     num2 = float(tokenized_input[2])
+    # except:
+    #     pass
 
-    # for item in tokenized_input:
-    #     if item.index(0) > 0:
-    #         float(item)
+    floated_input = [float(x) for x in tokenized_input[1:]]
 
     if tokenized_input[0] == "q" or tokenized_input[0] == "quit":
         #this will exit calculator
