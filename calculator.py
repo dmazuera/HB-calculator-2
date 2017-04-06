@@ -14,42 +14,46 @@ while True:
     input = raw_input()
     tokenized_input = input.split(" ")
 
-    num1 = float(tokenized_input[1])
-    # try:
-    #     tokenized_input[2]
-    #     num2 = float(tokenized_input[2])
-    # except:
-    #     pass
 
-    floated_input = [float(x) for x in tokenized_input[1:]]
+    try:
+        tokenized_input[1:]
+        num_list = [float(x) for x in tokenized_input[1:]] #num_list does not include operator
+    except:
+        pass
+
 
     if tokenized_input[0] == "q" or tokenized_input[0] == "quit":
         #this will exit calculator
         break
+
     elif tokenized_input[0] == "+":
-        #arithmetic add function
-        print add(num1, num2)
+        #arithmetic add function - takes lists
+        print add(num_list)
     elif tokenized_input[0] == "-":
-        #arithmetic subtract function
-        print subtract(num1, num2)
+        #arithmetic subtract function - given list, will subtract 
+        #all other numbers from the first number
+        print subtract(num_list)
     elif tokenized_input[0] == "*":
-        #arithmetic multiply function
-        print multiply(num1, num2)
+        #arithmetic multiply function - takes lists
+        print multiply(num_list)
+
+
+
     elif tokenized_input[0] == "/":
-        #arithmetic divide function
-        print divide(num1, num2)
+        #arithmetic divide function - only 2 numbers
+        print divide(num_list[1], num_list[2])
     elif tokenized_input[0] == "square":
-        #arithmetic square function
-        print square(num1)
+        #arithmetic square function - takes single num input
+        print square(num_list[1])
     elif tokenized_input[0] == "cube":
-        #arithmetic cube function
-        print cube(num1)
+        #arithmetic cube function - takes single num input
+        print cube(num_list[1])
     elif tokenized_input[0] == "pow":
-        #arithmetic power function
-        print power(num1, num2)
+        #arithmetic power function - input base, exponent
+        print power(num_list[1], num_list[2])
     elif tokenized_input[0] == "mod":
-        #arithmetic modulo function
-        print mod(num1, num2)
+        #arithmetic modulo function - input dividee and divisor
+        print mod(num_list[1], num_list[2])
     else:
         print "I do not understand!"
 
